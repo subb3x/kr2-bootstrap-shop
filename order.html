@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование — Stadium</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header class="border-bottom small py-2">
+    <div class="container">
+      <div class="row g-1 align-items-center">
+        <div class="col-12 col-md-8 text-body-secondary">
+          г. Москва, ул. Строителей, 15 · Круглосуточно
+        </div>
+
+        <div class="col-12 col-md-4 text-md-end">
+          <a class="link-body-emphasis text-decoration-none" href="tel:+79001234567">+7 (900) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-uppercase" href="index.html">Stadium</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNavbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Игровые зоны</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Конфигурации ПК</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="order.html" aria-current="page">Бронирование</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+            >
+              Ещё
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html#popular">Популярные зоны</a></li>
+              <li><a class="dropdown-item" href="product.html#faq">Частые вопросы</a></li>
+              <li><a class="dropdown-item" href="order.html">Оформить бронь</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <button
+          class="btn btn-outline-primary btn-sm ms-lg-3 my-2 my-lg-0"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#adminModal"
+        >
+          Связаться с админом
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5 flex-grow-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h1 class="h4 mb-0">Онлайн-бронирование</h1>
+          </div>
+
+          <div class="card-body p-4">
+            <div class="alert alert-info" role="alert">
+              Поля со звёздочкой обязательны. Администратор перезвонит в течение 15 минут и подтвердит бронь.
+            </div>
+
+            <form id="booking-form">
+              <div class="row g-3">
+                <fieldset class="col-12 col-md-6">
+                  <legend class="form-label fs-6">Тип брони</legend>
+
+                  <div class="form-check">
+                    <input id="booking-type-solo" class="form-check-input" name="type" type="radio" value="solo" checked>
+                    <label class="form-check-label" for="booking-type-solo">Одно место</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input id="booking-type-team" class="form-check-input" name="type" type="radio" value="team">
+                    <label class="form-check-label" for="booking-type-team">Команда</label>
+                  </div>
+                </fieldset>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-seats">Количество мест *</label>
+                  <div class="input-group">
+                    <input id="booking-seats" class="form-control" name="seats" type="number" min="1" max="10" value="1" required>
+                    <span class="input-group-text">мест</span>
+                  </div>
+                  <div class="form-text">Для команды — от 2 до 10 мест.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-zone">Зал *</label>
+                  <select id="booking-zone" class="form-select" name="zone" required>
+                    <option value="" disabled selected>Выберите зал</option>
+                    <option value="common">Общий зал</option>
+                    <option value="pro">PRO-зал</option>
+                    <option value="bootcamp">Буткемп «5×5»</option>
+                    <option value="vip">VIP-комната</option>
+                  </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-tier">Уровень железа *</label>
+                  <select id="booking-tier" class="form-select" name="tier" required>
+                    <option value="" disabled selected>Выберите уровень</option>
+                    <option value="standard">Standard — RTX 5060</option>
+                    <option value="pro">Pro — RTX 5070</option>
+                    <option value="ultra">Ultra — RTX 5080</option>
+                  </select>
+                </div>
+
+                <fieldset class="col-12">
+                  <legend class="form-label fs-6">Формат сессии</legend>
+
+                  <div class="form-check form-check-inline">
+                    <input id="booking-session-hourly" class="form-check-input" name="session" type="radio" value="hourly" checked>
+                    <label class="form-check-label" for="booking-session-hourly">Почасово</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input id="booking-session-night" class="form-check-input" name="session" type="radio" value="night">
+                    <label class="form-check-label" for="booking-session-night">На ночь, 22:00–08:00</label>
+                  </div>
+                </fieldset>
+
+                <div class="col-12 col-md-4">
+                  <label class="form-label" for="booking-date">Дата *</label>
+                  <input id="booking-date" class="form-control" name="date" type="date" required>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <label class="form-label" for="booking-time">Время начала *</label>
+                  <input id="booking-time" class="form-control" name="time" type="time" required>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <label class="form-label" for="booking-hours">Количество часов</label>
+                  <div class="input-group">
+                    <input id="booking-hours" class="form-control" name="hours" type="number" min="1" max="12" value="2">
+                    <span class="input-group-text">ч</span>
+                  </div>
+                  <div class="form-text">Для ночной сессии не учитывается.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-name">Имя *</label>
+                  <input id="booking-name" class="form-control" name="name" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-email">E-mail *</label>
+                  <input id="booking-email" class="form-control" name="email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="booking-phone">Телефон *</label>
+                  <div class="input-group">
+                    <span class="input-group-text">+7</span>
+                    <input
+                      id="booking-phone"
+                      class="form-control"
+                      name="phone"
+                      type="tel"
+                      placeholder="900 000-00-00"
+                      autocomplete="tel-national"
+                      required
+                    >
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="booking-comment">Комментарий</label>
+                  <textarea
+                    id="booking-comment"
+                    class="form-control"
+                    name="comment"
+                    placeholder="Например: нужны места рядом"
+                    rows="4"
+                  ></textarea>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input id="booking-agree" class="form-check-input" name="agree" type="checkbox" required>
+                    <label class="form-check-label" for="booking-agree">Я согласен на обработку данных *</label>
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex flex-wrap gap-2">
+                  <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                  <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-body-tertiary border-top py-4">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-1">&copy; 2026 Компьютерный клуб Stadium. Учебный проект.</p>
+          <p class="small text-body-secondary mb-0">
+            г. Москва, ул. Строителей, 15 · +7 (900) 123-45-67 · круглосуточно
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="link-body-emphasis text-decoration-none me-3" href="catalog.html">Игровые зоны</a>
+          <a class="link-body-emphasis text-decoration-none me-3" href="product.html">Конфигурации ПК</a>
+          <a class="link-body-emphasis text-decoration-none" href="order.html">Бронирование</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    id="adminModal"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="adminModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="adminModalLabel" class="modal-title h5">Связаться с администратором</h2>
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="text-body-secondary">
+            Оставьте телефон, и администратор перезвонит в течение 15 минут.
+          </p>
+
+          <form id="admin-form">
+            <div class="mb-3">
+              <label class="form-label" for="admin-name">Имя *</label>
+              <input id="admin-name" class="form-control" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="admin-phone">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="admin-phone"
+                  class="form-control"
+                  name="phone"
+                  type="tel"
+                  placeholder="900 000-00-00"
+                  autocomplete="tel-national"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="admin-message">Вопрос</label>
+              <textarea id="admin-message" class="form-control" name="message" rows="3"></textarea>
+            </div>
+
+            <div class="form-check">
+              <input id="admin-agree" class="form-check-input" name="agree" type="checkbox" required>
+              <label class="form-check-label" for="admin-agree">Согласен на обработку данных *</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Закрыть</button>
+          <button class="btn btn-primary" type="submit" form="admin-form">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
