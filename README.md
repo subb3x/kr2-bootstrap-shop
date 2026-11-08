@@ -11,6 +11,19 @@
 забронировать место для себя или для команды (выбрать зал, уровень железа и формат сессии:
 почасово или на ночь) и связаться с администратором через модальное окно.
 
+## Используемый фреймворк
+
+Bootstrap 5.3.8.
+
+## Способ подключения
+
+Bootstrap подключён через CDN:
+
+- `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`;
+- `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js`.
+
+Файл `css/custom.css` подключается после Bootstrap, чтобы переопределять отдельные стили.
+
 ## Практическая работа 9
 
 Выполнена главная страница на Bootstrap-сетке.
@@ -39,6 +52,20 @@
 - добавлено модальное окно для связи с администратором;
 - использованы компоненты `navbar`, `card`, `btn`, `badge`, `alert`, `modal`, `form-control`,
   `form-select`, `input-group`, `form-check`, `accordion`, `breadcrumb`.
+
+## Реализованные компоненты
+
+- `navbar`;
+- `card`;
+- `btn`;
+- `badge`;
+- `alert`;
+- `modal`;
+- `form-control`;
+- `form-select`;
+- `input-group`;
+- `form-check`;
+- `accordion`.
 
 ## Используемые технологии
 
