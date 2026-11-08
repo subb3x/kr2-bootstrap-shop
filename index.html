@@ -12,6 +12,78 @@
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
+  <header class="border-bottom small py-2">
+    <div class="container">
+      <div class="row g-1 align-items-center">
+        <div class="col-12 col-md-8 text-body-secondary">
+          г. Москва, ул. Строителей, 15 · Круглосуточно
+        </div>
+
+        <div class="col-12 col-md-4 text-md-end">
+          <a class="link-body-emphasis text-decoration-none" href="tel:+79001234567">+7 (900) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-uppercase" href="index.html">Stadium</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNavbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html" aria-current="page">Главная</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Игровые зоны</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Конфигурации ПК</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="order.html">Бронирование</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+            >
+              Ещё
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html#popular">Популярные зоны</a></li>
+              <li><a class="dropdown-item" href="product.html#faq">Частые вопросы</a></li>
+              <li><a class="dropdown-item" href="order.html">Оформить бронь</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1">
+  </main>
+
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </script>
