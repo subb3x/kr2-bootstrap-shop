@@ -77,6 +77,15 @@
             </ul>
           </li>
         </ul>
+
+        <button
+          class="btn btn-outline-primary btn-sm ms-lg-3 my-2 my-lg-0"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#adminModal"
+        >
+          Связаться с админом
+        </button>
       </div>
     </div>
   </nav>
@@ -288,6 +297,67 @@
       </div>
     </div>
   </footer>
+
+  <div
+    id="adminModal"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="adminModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="adminModalLabel" class="modal-title h5">Связаться с администратором</h2>
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="text-body-secondary">
+            Оставьте телефон, и администратор перезвонит в течение 15 минут.
+          </p>
+
+          <form id="admin-form">
+            <div class="mb-3">
+              <label class="form-label" for="admin-name">Имя *</label>
+              <input id="admin-name" class="form-control" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="admin-phone">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="admin-phone"
+                  class="form-control"
+                  name="phone"
+                  type="tel"
+                  placeholder="900 000-00-00"
+                  autocomplete="tel-national"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="admin-message">Вопрос</label>
+              <textarea id="admin-message" class="form-control" name="message" rows="3"></textarea>
+            </div>
+
+            <div class="form-check">
+              <input id="admin-agree" class="form-check-input" name="agree" type="checkbox" required>
+              <label class="form-check-label" for="admin-agree">Согласен на обработку данных *</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Закрыть</button>
+          <button class="btn btn-primary" type="submit" form="admin-form">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
