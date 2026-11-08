@@ -52,6 +52,23 @@
   box-shadow: 0 0 0 0.25rem rgba(109, 74, 255, 0.25);
 }
 
+.form-check-input:checked {
+  background-color: #6d4aff;
+  border-color: #6d4aff;
+}
+
+.navbar .nav-link.active {
+  color: var(--bs-primary-text-emphasis);
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: #6d4aff;
+}
+
+.accordion {
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(109, 74, 255, 0.25);
+}
+
 .card {
   --bs-card-bg: var(--bs-tertiary-bg);
 }
@@ -73,5 +90,10 @@
 
 .card-img-top {
   height: 200px;
+  object-fit: cover;
+}
+
+.product-image {
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
