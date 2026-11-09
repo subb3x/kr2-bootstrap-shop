@@ -130,7 +130,7 @@
           </div>
 
           <div class="col-12 col-lg-5">
-            <img class="img-fluid rounded-3 shadow" src="images/hero.png" alt="Игровой зал клуба Stadium с рядами компьютеров">
+            <img class="img-fluid rounded-3 shadow" src="images/hero.png" alt="Игрок за компьютером в зале клуба Stadium">
           </div>
         </div>
       </div>
@@ -320,7 +320,18 @@
           <form id="admin-form">
             <div class="mb-3">
               <label class="form-label" for="admin-name">Имя *</label>
-              <input id="admin-name" class="form-control" name="name" type="text" autocomplete="name" required>
+              <input
+                id="admin-name"
+                class="form-control"
+                name="name"
+                type="text"
+                minlength="2"
+                maxlength="40"
+                pattern="[A-Za-zА-Яа-яЁё\s\-]+"
+                title="Только буквы, от 2 до 40 символов"
+                autocomplete="name"
+                required
+              >
             </div>
 
             <div class="mb-3">
@@ -333,6 +344,8 @@
                   name="phone"
                   type="tel"
                   placeholder="900 000-00-00"
+                  pattern="(\+7|8)?[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}"
+                  title="Номер из 10 цифр, например: 900 123-45-67"
                   autocomplete="tel-national"
                   required
                 >
@@ -341,7 +354,7 @@
 
             <div class="mb-3">
               <label class="form-label" for="admin-message">Вопрос</label>
-              <textarea id="admin-message" class="form-control" name="message" rows="3"></textarea>
+              <textarea id="admin-message" class="form-control" name="message" maxlength="500" rows="3"></textarea>
             </div>
 
             <div class="form-check">
